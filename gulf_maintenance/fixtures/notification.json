@@ -1,0 +1,47 @@
+[
+ {
+  "attach_files": "",
+  "attach_print": 0,
+  "channel": "Email",
+  "condition": "doc.workflow_state == 'Awaiting Approval'",
+  "condition_type": "Python",
+  "date_changed": null,
+  "datetime_changed": null,
+  "datetime_last_run": null,
+  "days_in_advance": 0,
+  "docstatus": 0,
+  "doctype": "Notification",
+  "document_type": "Maintenance Request",
+  "enabled": 1,
+  "event": "Value Change",
+  "filters": null,
+  "from_attach_field": null,
+  "is_standard": 0,
+  "message": "<p>Maintenance Request <b>{{ doc.name }}</b> for customer <b>{{ doc.customer }}</b> needs parts approval.</p><p>Total parts cost: <b>PKR {{ doc.total_parts_cost }}</b> (exceeds the PKR 10,000 threshold).</p>",
+  "message_type": "Markdown",
+  "method": null,
+  "minutes_offset": 0,
+  "modified": "2026-06-26 14:39:18.195929",
+  "module": "Gulf Maintenance",
+  "name": "Maintenance Approval Required",
+  "print_format": null,
+  "property_value": null,
+  "recipients": [
+   {
+    "bcc": null,
+    "cc": null,
+    "condition": null,
+    "receiver_by_document_field": null,
+    "receiver_by_role": "Maintenance Manager"
+   }
+  ],
+  "send_system_notification": 0,
+  "send_to_all_assignees": 0,
+  "sender": null,
+  "sender_email": null,
+  "set_property_after_alert": null,
+  "slack_webhook_url": null,
+  "subject": "Parts approval required: {{ doc.name }}",
+  "value_changed": "workflow_state"
+ }
+]

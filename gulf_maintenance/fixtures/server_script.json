@@ -1,0 +1,21 @@
+[
+ {
+  "allow_guest": 0,
+  "api_method": null,
+  "cron_format": null,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Server Script",
+  "doctype_event": "Before Save",
+  "enable_rate_limit": 0,
+  "event_frequency": "All",
+  "modified": "2026-06-26 14:26:43.697883",
+  "module": "Gulf Maintenance",
+  "name": "Maintenance Parts Approval Gate",
+  "rate_limit_count": 5,
+  "rate_limit_seconds": 86400,
+  "reference_doctype": "Maintenance Request",
+  "script": "# Enforce PKR 10,000 parts-approval gate (authoritative, server-side).\nblocked_states = (\"In Progress\", \"Completed\", \"Signed Off\", \"Billed\")\nif (doc.workflow_state in blocked_states\n        and (doc.total_parts_cost or 0) > 10000\n        and not doc.parts_approved):\n    frappe.throw(\n        \"Parts cost exceeds PKR 10,000 \\u2014 manager approval required \"\n        \"before work can proceed.\"\n    )\n",
+  "script_type": "DocType Event"
+ }
+]

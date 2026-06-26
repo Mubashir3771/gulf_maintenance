@@ -1,0 +1,58 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2026-06-25 23:39:39.291040",
+  "name": "Reject",
+  "workflow_action_name": "Reject"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2026-06-26 14:29:53.376416",
+  "name": "Assign",
+  "workflow_action_name": "Assign"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2026-06-26 14:29:53.386563",
+  "name": "Submit for Approval",
+  "workflow_action_name": "Submit for Approval"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2026-06-26 14:29:53.388204",
+  "name": "Approve Parts",
+  "workflow_action_name": "Approve Parts"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2026-06-26 14:29:53.390183",
+  "name": "Start Work",
+  "workflow_action_name": "Start Work"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2026-06-26 14:29:53.391731",
+  "name": "Mark Complete",
+  "workflow_action_name": "Mark Complete"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2026-06-26 14:29:53.393306",
+  "name": "Customer Sign-off",
+  "workflow_action_name": "Customer Sign-off"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2026-06-26 14:29:53.394908",
+  "name": "Create Invoice",
+  "workflow_action_name": "Create Invoice"
+ }
+]

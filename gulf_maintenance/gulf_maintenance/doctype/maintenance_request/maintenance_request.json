@@ -1,0 +1,244 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-06-26 14:20:03.465432",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "customer",
+  "equipment",
+  "col_break_intake",
+  "priority",
+  "technician",
+  "workflow_state",
+  "sec_issue",
+  "issue_description",
+  "sec_parts",
+  "parts_used",
+  "col_parts",
+  "total_parts_cost",
+  "parts_approved",
+  "sec_work",
+  "hours_spent",
+  "labour_rate",
+  "col_work",
+  "work_done",
+  "sec_signoff",
+  "customer_signoff",
+  "signoff_date",
+  "col_bill",
+  "sales_invoice"
+ ],
+ "fields": [
+  {
+   "default": "MREQ-.YYYY.-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "MREQ-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "equipment",
+   "fieldtype": "Link",
+   "label": "Equipment",
+   "options": "Equipment"
+  },
+  {
+   "fieldname": "col_break_intake",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Medium",
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Priority",
+   "options": "Low\nMedium\nHigh\nUrgent"
+  },
+  {
+   "fieldname": "technician",
+   "fieldtype": "Link",
+   "label": "Technician",
+   "options": "Employee"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "workflow_state",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "no_copy": 1,
+   "options": "Workflow State",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sec_issue",
+   "fieldtype": "Section Break",
+   "label": "Issue"
+  },
+  {
+   "fieldname": "issue_description",
+   "fieldtype": "Small Text",
+   "label": "Issue Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sec_parts",
+   "fieldtype": "Section Break",
+   "label": "Parts"
+  },
+  {
+   "fieldname": "parts_used",
+   "fieldtype": "Table",
+   "label": "Parts Used",
+   "options": "Parts Used"
+  },
+  {
+   "fieldname": "col_parts",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_parts_cost",
+   "fieldtype": "Currency",
+   "label": "Total Parts Cost",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "parts_approved",
+   "fieldtype": "Check",
+   "label": "Parts Approved",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "sec_work",
+   "fieldtype": "Section Break",
+   "label": "Work"
+  },
+  {
+   "fieldname": "hours_spent",
+   "fieldtype": "Float",
+   "label": "Hours Spent"
+  },
+  {
+   "default": "500",
+   "fieldname": "labour_rate",
+   "fieldtype": "Currency",
+   "label": "Labour Rate"
+  },
+  {
+   "fieldname": "col_work",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "work_done",
+   "fieldtype": "Text",
+   "label": "Work Done"
+  },
+  {
+   "fieldname": "sec_signoff",
+   "fieldtype": "Section Break",
+   "label": "Sign-off & Billing"
+  },
+  {
+   "default": "0",
+   "fieldname": "customer_signoff",
+   "fieldtype": "Check",
+   "label": "Customer Sign-off",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "signoff_date",
+   "fieldtype": "Date",
+   "label": "Sign-off Date",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "col_bill",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sales_invoice",
+   "fieldtype": "Link",
+   "label": "Sales Invoice",
+   "no_copy": 1,
+   "options": "Sales Invoice",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-26 15:32:02.428147",
+ "modified_by": "Administrator",
+ "module": "Gulf Maintenance",
+ "name": "Maintenance Request",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Maintenance User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Maintenance Technician",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Maintenance Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "customer",
+ "track_changes": 1
+}
