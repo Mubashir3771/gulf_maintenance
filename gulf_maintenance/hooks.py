@@ -299,5 +299,9 @@ fixtures = [
 		"dt": "Workspace",
 		"filters": [["name", "=", "Gulf Maintenance"]],
 	},
+	{
+		"dt": "Custom Field",
+		"filters": [["name", "in", ["Sales Invoice-maintenance_request"]]],
+	},
 ]
 

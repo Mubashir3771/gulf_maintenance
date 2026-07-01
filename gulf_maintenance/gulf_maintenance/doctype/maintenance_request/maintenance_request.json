@@ -9,16 +9,17 @@
  "field_order": [
   "naming_series",
   "customer",
+  "technician",
   "equipment",
   "col_break_intake",
   "priority",
-  "technician",
+  "technician_name",
+  "equipment_name",
   "workflow_state",
   "sec_issue",
   "issue_description",
   "sec_parts",
   "parts_used",
-  "col_parts",
   "total_parts_cost",
   "parts_approved",
   "sec_work",
@@ -28,15 +29,14 @@
   "work_done",
   "sec_signoff",
   "customer_signoff",
-  "signoff_date",
-  "col_bill",
-  "sales_invoice"
+  "signoff_date"
  ],
  "fields": [
   {
    "default": "MREQ-.YYYY.-",
    "fieldname": "naming_series",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Series",
    "options": "MREQ-.YYYY.-",
    "reqd": 1
@@ -109,10 +109,6 @@
    "options": "Parts Used"
   },
   {
-   "fieldname": "col_parts",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "total_parts_cost",
    "fieldtype": "Currency",
    "label": "Total Parts Cost",
@@ -172,22 +168,25 @@
    "read_only": 1
   },
   {
-   "fieldname": "col_bill",
-   "fieldtype": "Column Break"
+   "fetch_from": "technician.employee_name",
+   "fieldname": "technician_name",
+   "fieldtype": "Data",
+   "label": "Technician Name",
+   "read_only": 1
   },
   {
-   "fieldname": "sales_invoice",
-   "fieldtype": "Link",
-   "label": "Sales Invoice",
-   "no_copy": 1,
-   "options": "Sales Invoice",
+   "fetch_from": "equipment.equipment_name",
+   "fieldname": "equipment_name",
+   "fieldtype": "Data",
+   "label": "Equipment Name",
    "read_only": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2026-06-26 15:32:02.428147",
+ "modified": "2026-07-01 19:23:36.349808",
  "modified_by": "Administrator",
  "module": "Gulf Maintenance",
  "name": "Maintenance Request",

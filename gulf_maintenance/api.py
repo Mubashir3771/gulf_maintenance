@@ -22,8 +22,9 @@ def create_sales_invoice(maintenance_request):
 	if mr.workflow_state != "Signed Off":
 		frappe.throw(_("Sales Invoice can only be created when the request is in 'Signed Off' state (current: {0}).").format(mr.workflow_state or "Draft"))
 
-	if mr.sales_invoice:
-		frappe.throw(_("This request is already linked to Sales Invoice {0}.").format(mr.sales_invoice))
+	existing = frappe.db.exists("Sales Invoice", {"maintenance_request": mr.name, "docstatus": ["<", 2]})
+	if existing:
+		frappe.throw(_("This request is already linked to Sales Invoice {0}.").format(existing))
 
 	has_parts = bool(mr.parts_used)
 	has_labour = flt(mr.hours_spent) > 0 and flt(mr.labour_rate) > 0
@@ -38,7 +39,7 @@ def create_sales_invoice(maintenance_request):
 	si.customer = mr.customer
 	si.company = company
 	si.update_stock = 1
-	si.remarks = _("Auto-generated from Maintenance Request {0}").format(mr.name)
+	si.maintenance_request = mr.name  # proper link back to the request (shown in its dashboard)
 
 	# Parts -> stock lines (carry the warehouse so valuation/COGS hit the right bin)
 	for row in mr.parts_used:
@@ -61,9 +62,12 @@ def create_sales_invoice(maintenance_request):
 
 	si.insert(ignore_permissions=False)  # DRAFT only — do NOT submit
 
-	# Link + advance the request to Billed
-	mr.db_set("sales_invoice", si.name)
-	mr.db_set("workflow_state", "Billed")
+	# Advance the request to Billed via the workflow. 'Billed' is a submitted state
+	# (docstatus 1), so this submits + locks the request. The SI links back through
+	# its own `maintenance_request` field — nothing is stored on the request itself.
+	from frappe.model.workflow import apply_workflow
+
+	apply_workflow(mr, "Create Invoice")
 
 	frappe.msgprint(_("Draft Sales Invoice {0} created.").format(si.name), alert=True)
 	return si.name

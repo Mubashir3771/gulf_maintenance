@@ -1,0 +1,20 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Custom Field",
+  "dt": "Sales Invoice",
+  "fieldname": "maintenance_request",
+  "fieldtype": "Link",
+  "hidden": 0,
+  "in_standard_filter": 1,
+  "insert_after": "customer",
+  "label": "Maintenance Request",
+  "module": "Gulf Maintenance",
+  "name": "Sales Invoice-maintenance_request",
+  "no_copy": 1,
+  "options": "Maintenance Request",
+  "print_hide": 1,
+  "read_only": 1,
+  "translatable": 0
+ }
+]
